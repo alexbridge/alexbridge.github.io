@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Architectural Ledger | Alex Bridge</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline-variant": "#c3c6d6",
+                        "secondary-container": "#cdddff",
+                        "on-surface-variant": "#434654",
+                        "tertiary-container": "#a33500",
+                        "surface-container-low": "#f3f4f6",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "on-secondary-container": "#51617e",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed": "#dae2ff",
+                        "on-background": "#191c1e",
+                        "primary-container": "#0052cc",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "surface-container": "#edeef0",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "tertiary": "#7b2600",
+                        "surface-bright": "#f8f9fb",
+                        "secondary-fixed-dim": "#b7c7e8",
+                        "surface-container-highest": "#e1e2e4",
+                        "secondary-fixed": "#d6e3ff",
+                        "outline": "#737685",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface-tint": "#0c56d0",
+                        "surface-dim": "#d9dadc",
+                        "on-primary-container": "#c4d2ff",
+                        "on-primary-fixed": "#001848",
+                        "on-tertiary-fixed": "#380d00",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed": "#ffdbcf",
+                        "secondary": "#4f5f7b",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e1e2e4",
+                        "surface": "#f8f9fb",
+                        "primary": "#003d9b",
+                        "on-secondary-fixed-variant": "#374763",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#091c35",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-primary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface antialiased">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm border-b border-slate-200/50 dark:border-slate-800/50">
+        <div class="flex items-center justify-between px-6 h-16 w-full max-w-[1600px] mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-blue-700 dark:text-blue-400" data-icon="terminal">terminal</span>
+                <span class="text-xl font-black text-slate-900 dark:text-slate-50 tracking-tight font-headline">Architectural Ledger</span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-blue-700 dark:text-blue-400 font-manrope tracking-tight font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Ledger</a>
+                <a class="text-slate-500 dark:text-slate-400 font-manrope tracking-tight font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="repositories.html">Repos</a>
+                <a class="text-slate-500 dark:text-slate-400 font-manrope tracking-tight font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="mindset.html">System</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-[10px] text-white font-bold border-2 border-white overflow-hidden">
+                    <img alt="Senior Architect Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a senior software architect" src="https://avatars.githubusercontent.com/u/18292310?v=4" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-24 pb-32 px-6 max-w-7xl mx-auto space-y-12">
+        <!-- Header Profile -->
+        <section class="flex flex-col md:flex-row items-center md:items-end gap-8 border-b border-outline-variant/20 pb-12">
+            <div class="relative group">
+                <div class="w-32 h-32 md:w-40 md:h-40 bg-surface-container-highest rounded-full overflow-hidden border-4 border-surface-container-lowest shadow-sm">
+                    <img alt="Alex Bridge" class="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply" src="https://avatars.githubusercontent.com/u/18292310?v=4" />
+                </div>
+                <div class="absolute -bottom-2 -right-2 bg-primary text-on-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">
+                    Staff Architect
+                </div>
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-on-background">Alex Bridge</h1>
+                    <span class="bg-tertiary-container/10 text-on-tertiary-fixed-variant border border-tertiary/20 px-3 py-1 rounded text-xs font-bold uppercase flex items-center gap-1.5">
+                        <span class="w-2 h-2 bg-tertiary rounded-full"></span>
+                        Aller de l`avant
+                    </span>
+                    <div class="flex items-center gap-3 ml-2">
+                        <a href="https://github.com/alexbridge" target="_blank" class="text-on-surface-variant hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alexbilenko/" target="_blank" class="text-on-surface-variant hover:text-primary transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <p class="text-xl text-on-surface-variant font-medium max-w-2xl leading-relaxed">
+                    System Architect and <span class="text-primary font-bold">Senior Engineer</span> specializing in <span class="text-primary font-bold">high-performance</span> distributed systems and <span class="text-primary font-bold">scalable</span>, resilient on-premise solutions.
+                </p>
+            </div>
+        </section>
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Left Column: The Matrix & The Stack -->
+            <div class="lg:col-span-8 space-y-12">
+                <!-- The Matrix (Language Grid) -->
+                <div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <h2 class="text-2xl font-black uppercase tracking-widest text-on-background">The Matrix</h2>
+                        <div class="h-[2px] flex-1 bg-surface-container-highest"></div>
+                        <span class="text-[10px] font-mono text-outline uppercase">Runtime Environment</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-1">
+                        <!-- Row 1 (Desktop: Desktop Top Row) -->
+                        <!-- Column 1: Java Stack -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors cursor-default border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <img src="https://brm-workforce.oracle.com/pdf/certview/images/Oracle_Java_SE_11_Developer.png" class="w-12 h-12 object-contain" alt="Java SE 11 Programmer">
+                                <span class="text-[10px] font-bold text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded uppercase">Core</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">Java</h3>
+                                <p class="text-xs text-on-surface-variant">Gradle Multi-module / Performance Tuning / Best Practices</p>
+                            </div>
+                        </div>
+                        <!-- Column 2: TypeScript Stack -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" class="w-8 h-8" alt="TypeScript">
+                                <span class="text-[10px] font-bold text-on-secondary-container bg-secondary-fixed px-2 py-0.5 rounded uppercase">Advanced</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">TypeScript</h3>
+                                <p class="text-xs text-on-surface-variant">React/Redux Enterprise Architecture</p>
+                            </div>
+                        </div>
+                        <!-- Column 3: Low-Level Stack -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.svg" class="w-8 h-8" alt="C++">
+                                <span class="text-[10px] font-bold text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded uppercase">Core</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">C++</h3>
+                                <p class="text-xs text-on-surface-variant">Low-latency Systems / Memory Mgmt</p>
+                            </div>
+                        </div>
+
+                        <!-- Row 2 -->
+                        <!-- Column 1: Spring (Under Java) -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" class="w-8 h-8" alt="Spring">
+                                <span class="text-[10px] font-bold text-on-secondary-container bg-secondary-fixed px-2 py-0.5 rounded uppercase">Core</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">Spring</h3>
+                                <p class="text-xs text-on-surface-variant">Boot / Microservices / Data / Security</p>
+                            </div>
+                        </div>
+                        <!-- Column 2: JavaScript (Under TypeScript) -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" class="w-8 h-8" alt="JavaScript">
+                                <span class="text-[10px] font-bold text-on-secondary-container bg-secondary-fixed px-2 py-0.5 rounded uppercase">Advanced</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">JavaScript</h3>
+                                <p class="text-xs text-on-surface-variant">Modern ES+ / Functional Patterns / Async Programming</p>
+                            </div>
+                        </div>
+                        <!-- Column 3: Persistence (Under C++) -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" class="w-8 h-8" alt="MySQL">
+                                <span class="text-[10px] font-bold text-on-secondary-container bg-secondary-fixed px-2 py-0.5 rounded uppercase">Advanced</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">SQL</h3>
+                                <p class="text-xs text-on-surface-variant">MySQL / PostgreSQL / TimescaleDB</p>
+                            </div>
+                        </div>
+
+                        <!-- Row 3 -->
+                        <!-- Column 1: Infrastructure (Under Spring) -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <div class="flex gap-2 items-center">
+                                    <img src="https://www.vectorlogo.zone/logos/ansible/ansible-icon.svg" class="w-8 h-8" alt="Ansible">
+                                    <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" class="w-8 h-8" alt="Docker">
+                                </div>
+                                <span class="text-[10px] font-bold text-on-tertiary-fixed-variant bg-tertiary-fixed px-2 py-0.5 rounded uppercase">Expert</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">Infrastructure</h3>
+                                <p class="text-xs text-on-surface-variant">Ansible / Docker / On-premise Scaling</p>
+                            </div>
+                        </div>
+                        <!-- Column 2: Cache (Under JavaScript) -->
+                        <div class="bg-surface-container-lowest p-6 flex flex-col gap-4 group hover:bg-primary-fixed/30 transition-colors border border-transparent hover:border-primary/10">
+                            <div class="flex justify-between items-start">
+                                <div class="flex gap-2 items-center">
+                                    <img src="https://www.vectorlogo.zone/logos/prometheusio/prometheusio-icon.svg" class="w-8 h-8" alt="Prometheus">
+                                    <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" class="w-8 h-8" alt="Grafana">
+                                </div>
+                                <span class="text-[10px] font-bold text-on-secondary-container bg-secondary-fixed px-2 py-0.5 rounded uppercase">Advanced</span>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-on-surface">Observability</h3>
+                                <p class="text-xs text-on-surface-variant">Prometheus / Grafana / OpenTelemetry</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- The Stack -->
+                <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+                    <div class="flex items-center gap-4 mb-6">
+                        <h2 class="text-lg font-black uppercase tracking-widest text-on-background">The Stack</h2>
+                        <span class="text-[10px] font-mono text-outline">Dev Tools</span>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-3 bg-surface-container-lowest px-4 py-3 rounded-lg border border-outline-variant/20 shadow-sm">
+                            <div class="flex items-center gap-2">
+                                <img src="https://www.vectorlogo.zone/logos/debian/debian-icon.svg" class="w-5 h-5" alt="Debian">
+                                <img src="https://www.vectorlogo.zone/logos/ubuntu/ubuntu-icon.svg" class="w-5 h-5" alt="Ubuntu">
+                            </div>
+                            <span class="text-sm font-bold">Debian / Ubuntu</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-surface-container-lowest px-4 py-3 rounded-lg border border-outline-variant/20 shadow-sm">
+                            <img src="https://www.vectorlogo.zone/logos/ansible/ansible-icon.svg" class="w-5 h-5" alt="Ansible">
+                            <span class="text-sm font-bold">Ansible</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-surface-container-lowest px-4 py-3 rounded-lg border border-outline-variant/20 shadow-sm">
+                            <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" class="w-5 h-5" alt="Docker">
+                            <span class="text-sm font-bold">Docker</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-primary text-on-primary px-4 py-3 rounded-lg border border-primary/20 shadow-md">
+                            <div class="flex items-center gap-2">
+                                <img src="https://www.vectorlogo.zone/logos/jetbrains/jetbrains-icon.svg" class="w-5 h-5" alt="IntelliJ">
+                                <img src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" class="w-5 h-5" alt="VS Code">
+                            </div>
+                            <span class="text-sm font-bold">IntelliJ / VS Code</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-surface-container-lowest px-4 py-3 rounded-lg border border-outline-variant/20 shadow-sm">
+                            <span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+                            <span class="text-sm font-bold">Tilix / Terminal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Column: Repositories, Certifications & History -->
+            <div class="lg:col-span-4 space-y-12">
+                <!-- Repositories (Specific Projects) - Hidden for now -->
+                <!-- 
+                <div>
+                    <h2 class="text-2xl font-black uppercase tracking-widest text-on-background mb-8 flex items-center justify-between">
+                        Projects
+                        <span class="text-[10px] font-mono text-outline">Active Assets</span>
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-bold text-lg text-primary">Core Banking Gateway</h3>
+                                <span class="material-symbols-outlined text-outline" data-icon="open_in_new">open_in_new</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                High-availability API gateway for mission-critical BSS systems, processing 10k+ TPS with 99.99% uptime.
+                            </p>
+                            <div class="flex items-center justify-between text-[11px] font-bold text-outline">
+                                <div class="flex gap-4">
+                                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" data-icon="account_tree">account_tree</span> Architecture</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                    Java / Spring
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-tertiary shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-bold text-lg text-primary">Scalable Ledger Engine</h3>
+                                <span class="material-symbols-outlined text-outline" data-icon="open_in_new">open_in_new</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
+                                Distributed transaction engine for large-scale financial auditing, utilizing Kafka and multi-master Postgres.
+                            </p>
+                            <div class="flex items-center justify-between text-[11px] font-bold text-outline">
+                                <div class="flex gap-4">
+                                    <span class="flex items-center gap-1"><img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" class="w-4 h-4" alt="MySQL"> Persistence</span>
+                                </div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+                                    SQL / NoSQL
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <!-- Certifications Section -->
+                <div>
+                    <h2 class="text-2xl font-black uppercase tracking-widest text-on-background mb-8 flex items-center justify-between">
+                        Certifications
+                        <span class="text-[10px] font-mono text-outline">Validated Expertise</span>
+                    </h2>
+                    <div class="space-y-4">
+                        <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/20 flex items-center gap-4 hover:border-primary/40 transition-colors shadow-sm">
+                            <div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+                                <img src="https://www.eitci.org/sites/default/files/eitci-logo-bg.png" class="w-full h-full object-contain" alt="EITCI Information Security">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-bold text-on-surface">EITCA/IS Information Security</h4>
+                                <p class="text-[11px] text-on-surface-variant">ID: EITCA/IS/FXR25004544 • Issued SEPT 2025</p>
+                            </div>
+                            <a href="https://www.eitci.org/certificatesupplement?id=EITCA/IS/FXR25004544&t=S7Xp7PSJDLdPfS3T" target="_blank" class="material-symbols-outlined text-outline text-sm hover:text-primary transition-colors" data-icon="open_in_new">open_in_new</a>
+                        </div>
+                        <div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/20 flex items-center gap-4 hover:border-primary/40 transition-colors shadow-sm">
+                            <div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+                                <img src="https://brm-workforce.oracle.com/pdf/certview/images/Oracle_Java_SE_11_Developer.png" class="w-full h-full object-contain" alt="Java OCP">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-bold text-on-surface">Oracle Certified Professional</h4>
+                                <p class="text-[11px] text-on-surface-variant">Java SE 11 Programmer • ID: 281778215OCPJSE11-J</p>
+                            </div>
+                            <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=C35C43986A09F537FC7D82FC2C2D5DF47121C293D5EF163CA3BCF0582DED61C5" target="_blank" class="material-symbols-outlined text-outline text-sm hover:text-primary transition-colors" data-icon="open_in_new">open_in_new</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- VSCode Extensions -->
+                <div>
+                    <h2 class="text-2xl font-black uppercase tracking-widest text-on-background mb-8 flex items-center justify-between">
+                        VSCode Extensions
+                        <span class="text-[10px] font-mono text-outline">Open Source</span>
+                    </h2>
+                    <div class="space-y-4">
+                        <a href="https://alexbridge.github.io/abridge-vsx-apixs/" target="_blank" class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/20 flex items-center gap-4 hover:border-primary/40 transition-colors shadow-sm block">
+                            <div class="w-12 h-12 bg-surface-container-low flex items-center justify-center rounded-lg border border-outline-variant/10">
+                                <img src="https://alexbridge.github.io/abridge-vsx-apixs/icons/logo.png" class="w-10 h-10 object-contain rounded" alt="APIxs Logo">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-bold text-on-surface">APIxs</h4>
+                                <p class="text-[11px] text-on-surface-variant">Advanced API Testing Tool for VSCode</p>
+                            </div>
+                            <span class="material-symbols-outlined text-outline text-sm" data-icon="open_in_new">open_in_new</span>
+                        </a>
+                        <a href="https://alexbridge.github.io/vscode-file-explorer-tools/" target="_blank" class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/20 flex items-center gap-4 hover:border-primary/40 transition-colors shadow-sm block">
+                            <div class="w-12 h-12 bg-surface-container-low flex items-center justify-center rounded-lg border border-outline-variant/10">
+                                <img src="https://alexbridge.github.io/vscode-file-explorer-tools/media/icon.png" class="w-10 h-10 object-contain rounded" alt="File Explorer Tools Logo">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-bold text-on-surface">File Explorer Tools</h4>
+                                <p class="text-[11px] text-on-surface-variant">Enhanced navigation and file management</p>
+                            </div>
+                            <span class="material-symbols-outlined text-outline text-sm" data-icon="open_in_new">open_in_new</span>
+                        </a>
+                        <a href="https://open-vsx.org/namespace/abridge" target="_blank" class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/20 flex items-center gap-4 hover:border-primary/40 transition-colors shadow-sm block">
+                            <div class="w-12 h-12 bg-surface-container-low flex items-center justify-center rounded-lg border border-outline-variant/10">
+                                <img src="https://openvsx.eclipsecontent.org/abridge/logo/logo-abridge-1773836834235.png" class="w-10 h-10 object-contain rounded" alt="Abridge VSX Profile Logo">
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-sm font-bold text-on-surface">Open VSX Profile</h4>
+                                <p class="text-[11px] text-on-surface-variant">Marketplace for VS Code extensions</p>
+                            </div>
+                            <span class="material-symbols-outlined text-outline text-sm" data-icon="open_in_new">open_in_new</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- History (Specific from CV) -->
+                <div class="bg-surface-container-low p-6 rounded-xl">
+                    <h2 class="text-2xl font-black uppercase tracking-widest text-on-background mb-8 flex items-center justify-between">
+                        History
+                        <span class="text-[10px] font-mono text-outline">Milestones</span>
+                    </h2>
+                    <div class="relative space-y-10 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-0 before:w-[2px] before:bg-outline-variant/30">
+                        <!-- C24 Bank -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-6 h-6 bg-primary rounded flex items-center justify-center text-[10px] font-bold text-on-primary">
+                                C2
+                            </div>
+                            <h4 class="font-bold text-sm text-on-background">Senior Software Engineer</h4>
+                            <p class="text-xs text-primary font-semibold mb-2">C24 Bank GmbH</p>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">
+                                Designing high-performance distributed banking systems using Spring and complex on-premise infrastructure for scale.
+                            </p>
+                            <p class="mt-2 text-[10px] font-mono text-outline">SEPT 2021 — PRESENT</p>
+                        </div>
+                        <!-- Shopgate -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-6 h-6 bg-slate-400 rounded flex items-center justify-center text-[10px] font-bold text-on-primary">
+                                SH
+                            </div>
+                            <h4 class="font-bold text-sm text-on-background">Software Engineer</h4>
+                            <p class="text-xs text-primary font-semibold mb-2">Shopgate GmbH</p>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">
+                                B2B/B2C SaaS backend for mobile eCommerce. Scaled multi-tenant architectures, payment systems, and 3rd party integrations.
+                            </p>
+                            <p class="mt-2 text-[10px] font-mono text-outline">SEPT 2015 — SEPT 2021</p>
+                        </div>
+                        <!-- Petrosoft -->
+                        <div class="relative pl-8">
+                            <div class="absolute left-0 top-1 w-6 h-6 bg-slate-400 rounded flex items-center justify-center text-[10px] font-bold text-on-primary">
+                                PT
+                            </div>
+                            <h4 class="font-bold text-sm text-on-background">Technical Lead</h4>
+                            <p class="text-xs text-primary font-semibold mb-2">Petrosoft LLC</p>
+                            <p class="text-xs text-on-surface-variant leading-relaxed">
+                                Led development of B2B SaaS for gas stations and C-stores. Architected POS systems, EDI, and complex accounting modules.
+                            </p>
+                            <p class="mt-2 text-[10px] font-mono text-outline">AUG 2012 — SEPT 2015</p>
+                        </div>
+                        <!-- Microbid -->
+                        <div class="relative pl-8">
+                            <div class="relative pl-0">
+                                <div class="absolute -left-8 top-1 w-6 h-6 bg-slate-300 rounded flex items-center justify-center text-[10px] font-bold text-slate-600">
+                                    MB
+                                </div>
+                                <h4 class="font-bold text-sm text-on-background">PHP Developer</h4>
+                                <p class="text-xs text-primary font-semibold mb-2">Microbid Software</p>
+                                <p class="text-xs text-on-surface-variant leading-relaxed">
+                                    Full-stack development of enterprise web projects, refactoring for performance and memory optimization.
+                                </p>
+                                <p class="mt-2 text-[10px] font-mono text-outline">JULY 2008 — AUG 2012</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <footer class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center p-3 bg-slate-50 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] z-50 rounded-t-xl tonal-shift bg-slate-100">
+        <a class="flex flex-col items-center justify-center bg-blue-100 text-blue-800 rounded-xl px-3 py-1 active:opacity-80 transition-all" href="#">
+            <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+            <span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Matrix</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-500 hover:text-blue-600 active:opacity-80 transition-all" href="repositories.html">
+            <span class="material-symbols-outlined" data-icon="layers">layers</span>
+            <span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Repos</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-500 hover:text-blue-600 active:opacity-80 transition-all" href="mindset.html">
+            <span class="material-symbols-outlined" data-icon="timeline">timeline</span>
+            <span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">History</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-500 hover:text-blue-600 active:opacity-80 transition-all" href="#">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">About</span>
+        </a>
+    </footer>
+</body>
+
+</html>

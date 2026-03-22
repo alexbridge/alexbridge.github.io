@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Repositories | Alex Bridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#b2c5ff",
+                        "surface-container": "#edeef0",
+                        "outline": "#737685",
+                        "tertiary-container": "#a33500",
+                        "primary": "#003d9b",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#7b2600",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary-container": "#ffc6b2",
+                        "inverse-surface": "#2e3132",
+                        "primary-container": "#0052cc",
+                        "on-secondary-container": "#51617e",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d6e3ff",
+                        "background": "#f8f9fb",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-surface": "#191c1e",
+                        "outline-variant": "#c3c6d6",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d9dadc",
+                        "secondary-container": "#cdddff",
+                        "on-primary-fixed": "#001848",
+                        "surface-container-high": "#e7e8ea",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "surface-variant": "#e1e2e4",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dae2ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#091c35",
+                        "on-surface-variant": "#434654",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f1f3",
+                        "secondary-fixed-dim": "#b7c7e8",
+                        "surface-container-low": "#f3f4f6",
+                        "secondary": "#4f5f7b",
+                        "surface-tint": "#0c56d0",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-secondary-fixed-variant": "#374763",
+                        "on-tertiary-fixed": "#380d00"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fb;
+        }
+        .headline-font {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm border-b border-slate-200/50 dark:border-slate-800/50">
+<div class="flex items-center justify-between px-6 h-16 w-full max-w-[1600px] mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-700 dark:text-blue-400" data-icon="terminal">terminal</span>
+<span class="text-xl font-black text-slate-900 dark:text-slate-50 tracking-tight font-headline">Architectural Ledger</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-manrope tracking-tight font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="index.html">Ledger</a>
+<a class="text-blue-700 dark:text-blue-400 font-manrope tracking-tight font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="#">Repos</a>
+<a class="text-slate-500 dark:text-slate-400 font-manrope tracking-tight font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors px-3 py-1 rounded" href="mindset.html">System</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-[10px] text-white font-bold border-2 border-white overflow-hidden">
+<img alt="Senior Architect Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a senior software architect" src="https://avatars.githubusercontent.com/u/18292310?v=4"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-[1600px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="max-w-2xl">
+<h1 class="headline-font text-5xl font-extrabold tracking-tight text-on-surface mb-2">Repositories</h1>
+<p class="text-secondary font-body text-lg">Engineering assets and technical specifications for the alexbridge ecosystem.</p>
+</div>
+<div class="flex items-center gap-2 text-sm headline-font font-bold text-primary bg-primary-fixed px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="git_branch">rebase</span>
+<span>6 KEY REPOS</span>
+</div>
+</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- APIxs -->
+            <a href="https://github.com/alexbridge/abridge-vsx-apixs" target="_blank" class="bg-surface-container-lowest p-8 rounded-2xl transition-all hover:bg-white group relative block border border-outline-variant/10 hover:border-primary/20 shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.01] transition-opacity pointer-events-none rounded-2xl"></div>
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="h-12 w-12 bg-blue-50 flex items-center justify-center rounded-xl border border-blue-100">
+                            <img src="https://alexbridge.github.io/abridge-vsx-apixs/icons/logo.png" class="w-8 h-8 object-contain" alt="APIxs">
+                        </div>
+                        <span class="px-2 py-1 bg-blue-100/50 text-blue-700 text-[10px] font-bold headline-font rounded-lg uppercase tracking-wider">Public</span>
+                    </div>
+                    <h3 class="headline-font font-bold text-xl text-on-surface group-hover:text-primary transition-colors mb-4 line-clamp-1">abridge-vsx-apixs</h3>
+                    <p class="text-secondary text-sm font-body leading-relaxed mb-8 flex-grow">A local-first REST & HTTP client for VS Code. High-performance, integrated workflow orchestration for modern API development.</p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-full headline-font">TypeScript</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold rounded-full headline-font">VS Code</span>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-outline-variant/10">
+                            <div class="flex items-center gap-1 text-xs text-outline font-label">
+                                <span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+                                302+
+                            </div>
+                            <div class="ml-auto flex items-center gap-1.5 text-xs text-green-600 font-bold uppercase tracking-widest text-[9px]">
+                                <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Active
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- File Explorer Tools -->
+            <a href="https://github.com/alexbridge/vscode-file-explorer-tools" target="_blank" class="bg-surface-container-lowest p-8 rounded-2xl transition-all hover:bg-white group relative block border border-outline-variant/10 hover:border-primary/20 shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.01] transition-opacity pointer-events-none rounded-2xl"></div>
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="h-12 w-12 bg-blue-50 flex items-center justify-center rounded-xl border border-blue-100">
+                            <img src="https://alexbridge.github.io/vscode-file-explorer-tools/media/icon.png" class="w-8 h-8 object-contain" alt="File Explorer Tools">
+                        </div>
+                        <span class="px-2 py-1 bg-blue-100/50 text-blue-700 text-[10px] font-bold headline-font rounded-lg uppercase tracking-wider">Public</span>
+                    </div>
+                    <h3 class="headline-font font-bold text-xl text-on-surface group-hover:text-primary transition-colors mb-4 line-clamp-1">vscode-file-explorer-tools</h3>
+                    <p class="text-secondary text-sm font-body leading-relaxed mb-8 flex-grow">Architectural toolset for VS Code providing recursive expansion, scope management, and rename cascades for large-scale monorepos.</p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-full headline-font">TypeScript</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold rounded-full headline-font">Productivity</span>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-outline-variant/10">
+                            <div class="flex items-center gap-1 text-xs text-outline font-label">
+                                <span class="material-symbols-outlined text-sm" data-icon="star">star</span>
+                                300+
+                            </div>
+                            <div class="ml-auto flex items-center gap-1.5 text-xs text-green-600 font-bold uppercase tracking-widest text-[9px]">
+                                <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Active
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Ground Station -->
+            <a href="https://github.com/alexbridge/project-ground-station" target="_blank" class="bg-surface-container-lowest p-8 rounded-2xl transition-all hover:bg-white group relative block border border-outline-variant/10 hover:border-primary/20 shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.01] transition-opacity pointer-events-none rounded-2xl"></div>
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="h-12 w-12 bg-blue-50 flex items-center justify-center rounded-xl border border-blue-100">
+                            <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.svg" class="w-8 h-8" alt="C++">
+                        </div>
+                        <span class="px-2 py-1 bg-blue-100/50 text-blue-700 text-[10px] font-bold headline-font rounded-lg uppercase tracking-wider">Public</span>
+                    </div>
+                    <h3 class="headline-font font-bold text-xl text-on-surface group-hover:text-primary transition-colors mb-4 line-clamp-1">project-ground-station</h3>
+                    <p class="text-secondary text-sm font-body leading-relaxed mb-8 flex-grow">High-throughput telemetry processing and real-time command system. Built for low-latency on-premise deployments.</p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-full headline-font">C++</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold rounded-full headline-font">Telemetry</span>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-outline-variant/10">
+                            <div class="flex items-center gap-1 text-xs text-outline font-label">
+                                <span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+                                Kernel
+                            </div>
+                            <div class="ml-auto flex items-center gap-1.5 text-xs text-green-600 font-bold uppercase tracking-widest text-[9px]">
+                                <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Active
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Clang HTTP -->
+            <a href="https://github.com/alexbridge/clang-http" target="_blank" class="bg-surface-container-lowest p-8 rounded-2xl transition-all hover:bg-white group relative block border border-outline-variant/10 hover:border-primary/20 shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.01] transition-opacity pointer-events-none rounded-2xl"></div>
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="h-12 w-12 bg-blue-50 flex items-center justify-center rounded-xl border border-blue-100">
+                            <img src="https://raw.githubusercontent.com/isocpp/logos/master/cpp_logo.svg" class="w-8 h-8" alt="C++">
+                        </div>
+                        <span class="px-2 py-1 bg-blue-100/50 text-blue-700 text-[10px] font-bold headline-font rounded-lg uppercase tracking-wider">Public</span>
+                    </div>
+                    <h3 class="headline-font font-bold text-xl text-on-surface group-hover:text-primary transition-colors mb-4 line-clamp-1">clang-http</h3>
+                    <p class="text-secondary text-sm font-body leading-relaxed mb-8 flex-grow">Memory-efficient, zero-dependency HTTP client implementation in C++ designed for high-concurrency and predictable latency.</p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-full headline-font">C++</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold rounded-full headline-font">Network</span>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-outline-variant/10">
+                            <div class="flex items-center gap-1 text-xs text-outline font-label">
+                                <span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+                                Native
+                            </div>
+                            <div class="ml-auto flex items-center gap-1.5 text-xs text-slate-400 font-bold uppercase tracking-widest text-[9px]">
+                                <span class="h-1.5 w-1.5 rounded-full bg-slate-300"></span>
+                                Static
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Docker Images -->
+            <a href="https://github.com/alexbridge/docker-images" target="_blank" class="bg-surface-container-lowest p-8 rounded-2xl transition-all hover:bg-white group relative block border border-outline-variant/10 hover:border-primary/20 shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.01] transition-opacity pointer-events-none rounded-2xl"></div>
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="h-12 w-12 bg-blue-50 flex items-center justify-center rounded-xl border border-blue-100">
+                            <img src="https://www.vectorlogo.zone/logos/docker/docker-icon.svg" class="w-8 h-8" alt="Docker">
+                        </div>
+                        <span class="px-2 py-1 bg-blue-100/50 text-blue-700 text-[10px] font-bold headline-font rounded-lg uppercase tracking-wider">Public</span>
+                    </div>
+                    <h3 class="headline-font font-bold text-xl text-on-surface group-hover:text-primary transition-colors mb-4 line-clamp-1">docker-images</h3>
+                    <p class="text-secondary text-sm font-body leading-relaxed mb-8 flex-grow">Hardened Docker configurations for distributed services. Optimized for Security-by-Design and on-premise scalability.</p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-full headline-font">Docker</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold rounded-full headline-font">Security</span>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-outline-variant/10">
+                            <div class="flex items-center gap-1 text-xs text-outline font-label">
+                                <span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                                Hardened
+                            </div>
+                            <div class="ml-auto flex items-center gap-1.5 text-xs text-green-600 font-bold uppercase tracking-widest text-[9px]">
+                                <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Active
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- TS FetchEasy -->
+            <a href="https://github.com/alexbridge/ts-fetcheasy" target="_blank" class="bg-surface-container-lowest p-8 rounded-2xl transition-all hover:bg-white group relative block border border-outline-variant/10 hover:border-primary/20 shadow-sm hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-[0.01] transition-opacity pointer-events-none rounded-2xl"></div>
+                <div class="flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="h-12 w-12 bg-blue-50 flex items-center justify-center rounded-xl border border-blue-100">
+                            <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" class="w-8 h-8" alt="TypeScript">
+                        </div>
+                        <span class="px-2 py-1 bg-blue-100/50 text-blue-700 text-[10px] font-bold headline-font rounded-lg uppercase tracking-wider">Public</span>
+                    </div>
+                    <h3 class="headline-font font-bold text-xl text-on-surface group-hover:text-primary transition-colors mb-4 line-clamp-1">ts-fetcheasy</h3>
+                    <p class="text-secondary text-sm font-body leading-relaxed mb-8 flex-grow">Declarative, type-safe API abstraction layer for TypeScript. Engineered for reliability and seamless integration in enterprise systems.</p>
+                    <div class="space-y-4">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-primary/5 text-primary text-[10px] font-bold rounded-full headline-font">TypeScript</span>
+                            <span class="px-3 py-1 bg-slate-50 text-slate-500 text-[10px] font-bold rounded-full headline-font">API</span>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-outline-variant/10">
+                            <div class="flex items-center gap-1 text-xs text-outline font-label">
+                                <span class="material-symbols-outlined text-sm" data-icon="code">code</span>
+                                Middleware
+                            </div>
+                            <div class="ml-auto flex items-center gap-1.5 text-xs text-green-600 font-bold uppercase tracking-widest text-[9px]">
+                                <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                                Active
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+</div>
+<div class="mt-16 flex justify-center">
+    <a href="https://github.com/alexbridge?tab=repositories" target="_blank" class="flex items-center gap-3 px-8 py-5 bg-primary text-white font-manrope font-bold uppercase tracking-widest text-xs rounded-2xl hover:bg-primary-container shadow-lg hover:shadow-primary/30 active:scale-95 transition-all duration-300">
+        Explore Full Repository Ledger
+        <span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+    </a>
+</div>
+</main>
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-slate-50 dark:bg-slate-900 z-50 border-t border-slate-200 dark:border-slate-800">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 scale-95 active:scale-90 transition-transform" href="index.html">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Ledger</span>
+</a>
+<a class="flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-xl px-3 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="code_blocks">code_blocks</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">Repos</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-3 py-1 scale-95 active:scale-90 transition-transform" href="mindset.html">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-inter text-[10px] font-semibold uppercase tracking-widest mt-1">System</span>
+</a>
+</nav>
+</body></html>
